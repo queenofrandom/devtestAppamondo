@@ -1,0 +1,254 @@
+/*Let's set this up so the margins and padding are easier to control
+Pop in our font
+Flex as layout is only in 2D space
+*/
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  font-family: 'Nunito', sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+/*Usually a lot of this styling would be in a seperate sheet and compiled together, then rems used once standards set with px. Colours would also have mixins*/
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+h3 {
+  border-bottom: 3px solid #00b3c8;
+  display: inline-block;
+  font-size: 21px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+p {
+  font-size: 16px;
+}
+
+h3 {
+  color: #01384F;
+}
+
+a {
+  color: #000;
+  font-weight: 700;
+  position: relative;
+  text-decoration: none;
+}
+
+/*Only a simple hover here for UX - full animation is behind a prefers-reduced-motion query at the bottom*/
+a:hover {
+  border-bottom: 2px solid #efc93d;
+  display: inline-block;
+}
+
+/*Where we don't want it to be full-width - like our text*/
+section, article, nav {
+  margin: 1.5rem;
+}
+
+header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 100%;
+}
+
+header img {
+  margin: 2rem 0 0;
+  width: 50%;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 70%;
+}
+
+/*This creates our overlay - flex is used for centring on mobile*/
+section.pageHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.overlayBox {
+  background: #fff;
+  border-bottom: 5px solid #00b3c8;
+  bottom: -30%;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 0 5rem 1rem 1rem;
+  position: absolute;
+  width: 65%;
+}
+
+/*The positioning makes things a bit funny so need the margin put back*/
+.copyContainer {
+  margin-top: 23%;
+}
+
+footer {
+  background: #01384F;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+/*Tablet and desktop*/
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  .container {
+    max-width: 1100px;
+  }
+  header {
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  header img {
+    margin: 0;
+    width: 15%;
+  }
+  header nav {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 3rem;
+    width: 20%;
+  }
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .overlayBox {
+    bottom: -10%;
+    padding: 0 5rem 1rem 3rem;
+    right: 5%;
+    width: 30%;
+  }
+  .copyContainer {
+    margin: 10% 0 5% 0;
+    width: 70%;
+  }
+}
+
+/*All animation in prefers-reduced-motion query for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  a:hover {
+    border-bottom: none;
+  }
+  a:before {
+    background-color: #efc93d;
+    bottom: -5%;
+    content: "";
+    height: 10px;
+    left: 0;
+    position: absolute;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+    visibility: hidden;
+    width: 100%;
+    z-index: -1;
+  }
+  a:hover:before {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    visibility: visible;
+  }
+  h2.typewriter {
+    -webkit-animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
+            animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
+    border-right: 0.15em solid #efc93d;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  @-webkit-keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @-webkit-keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #efc93d;
+    }
+  }
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #efc93d;
+    }
+  }
+}
+/*# sourceMappingURL=main.css.map */
