@@ -216,6 +216,7 @@ footer {
             animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
     border-right: 0.15em solid #efc93d;
     overflow: hidden;
+    white-space: nowrap;
   }
   @-webkit-keyframes typing {
     from {
