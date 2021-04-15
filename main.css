@@ -109,6 +109,11 @@ section.pageHead {
   width: 100%;
 }
 
+section.pageHead img {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
 .overlayBox {
   background: #fff;
   border-bottom: 5px solid #00b3c8;
