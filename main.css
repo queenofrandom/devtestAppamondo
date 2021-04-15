@@ -29,7 +29,7 @@ h1 {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -200,8 +200,8 @@ footer {
     position: absolute;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
-    -webkit-transition: all 0.7s ease-out;
-    transition: all 0.7s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
     visibility: hidden;
     width: 100%;
     z-index: -1;
@@ -216,7 +216,6 @@ footer {
             animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
     border-right: 0.15em solid #efc93d;
     overflow: hidden;
-    white-space: nowrap;
   }
   @-webkit-keyframes typing {
     from {
